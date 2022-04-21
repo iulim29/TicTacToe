@@ -1,0 +1,175 @@
+
+let clicks  =0;
+let turn =0;
+let tiles = [
+    [0,0,0],
+    [0,0,0],
+    [0,0,0]
+];
+let vertical_sum1 = 0;
+let vertical_sum2 = 0;
+let vertical_sum3 = 0;
+let horizontal_sum1 = 0;
+let horizontal_sum2 = 0;
+let horizontal_sum3 = 0;
+let diagonal_sum1 = 0;
+let diagonal_sum2 = 0;
+
+
+    function imagefun() {
+        let Image_Id = document.getElementById('tile');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[0][0] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[0][0] = -1;
+        }
+    }
+
+    function imagefun1() {
+        
+        let Image_Id = document.getElementById('tile1');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[0][1] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[0][1] = -1;
+        }
+    }
+    function imagefun2() {
+        
+        let Image_Id = document.getElementById('tile2');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[0][2] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[0][2] = -1;
+        }
+    }
+    function imagefun3() {
+        let X10 = false;
+        let Image_Id = document.getElementById('tile3');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[1][0] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[1][0] = -1;
+        }
+    }
+    function imagefun4() {
+        let X11 = false;
+        let Image_Id = document.getElementById('tile4');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[1][1] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[1][1] = -1;
+        }
+    }
+    function imagefun5() {
+        let X12 = false;
+        let Image_Id = document.getElementById('tile5');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[1][2] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[1][2] = -1;
+        }
+    }
+    function imagefun6() {
+        let X20 = false;
+        let Image_Id = document.getElementById('tile6');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[2][0] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[2][0] = -1;
+        }
+    }
+    function imagefun7() {
+        let X21 = false;
+        let Image_Id = document.getElementById('tile7');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[2][1] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[2][1] = -1;
+        }
+    }
+    function imagefun8() {
+        let X22 = false;
+        let Image_Id = document.getElementById('tile8');
+        if (Image_Id.src.match("box.png") && (turn == 0)) {
+            Image_Id.src = "X.jpeg";
+            turn = 1;
+            tiles[2][2] = 1;
+        }else if(Image_Id.src.match("box.png") && (turn == 1)) {
+            Image_Id.src = "O.png";
+            turn = 0;
+            tiles[2][2] = -1;
+        }
+    }
+
+    function check_win(){
+        for(let i = 0 ; i < 2; i++){ 
+
+
+            vertical_sum1 += tiles[i][0];  
+            vertical_sum1 += tiles[i][1]; 
+            vertical_sum1 += tiles[i][2]; 
+
+            horizontal_sum1 += tiles[0][i];  
+            horizontal_sum2 += tiles[1][i]; 
+            horizontal_sum3 += tiles[2][i]; 
+
+            diagonal_sum1 += tiles[i][i];
+            diagonal_sum2 += tiles[2][0]+tiles[1][1]+tiles[0][2];
+
+            if(vertical_sum1 == 3 || vertical_sum2 == 3 || vertical_sum3 == 3){
+                alert("PLAYER1 WON!");
+            }
+            else if(vertical_sum1 == -3 || vertical_sum2 == -3 || vertical_sum3 == -3){
+                alert("PLAYER2 WON!");
+            }else if(horizontal_sum1 == 3 || horizontal_sum2 == 3 || horizontal_sum3 == 3){
+                alert("PLAYER1 WON!");
+            }
+            else if(horizontal_sum1 == -3 || horizontal_sum2 == -3 || horizontal_sum3 == -3){
+                alert("PLAYER2 WON!");
+            }else if(diagonal_sum1 == 3 || diagonal_sum2 == 3 ){
+                alert("PLAYER1 WON!");
+            } else if(diagonal_sum1 == -3 || diagonal_sum2 == -3 ){
+                alert("PLAYER2 WON!");
+            }else{
+                alert("Tie / No winner yet")
+            }
+        }
+    }
+
+
+ 
+ 
+    
